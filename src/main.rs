@@ -6,11 +6,14 @@ fn read_path_size(path: &str) -> u64 {
     let mut size = 0u64;
     fn read(path: &str, size: &mut u64) {
         if Path::new(path).is_dir() {
-            fs::read_dir(path).unwrap().for_each(|item| {
-                let path = item.unwrap().path();
-                let path = path.to_str().unwrap();
-                read(path, size);
-            });
+            match fs::read_dir(path) {
+                Err(exn) => println!("read dir {} failed: {:?}", path, exn),
+                Ok(result) => result.for_each(|item| {
+                    let path = item.unwrap().path();
+                    let path = path.to_str().unwrap();
+                    read(path, size);
+                }),
+            }
         } else {
             let meta = Path::new(path).metadata();
             match meta {
