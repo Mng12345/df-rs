@@ -1,6 +1,6 @@
 [package]
 name = "df-rs"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 license = "MIT"
 description = "A tool that can list the 10 biggest directories of the path you support, like df on linux."
