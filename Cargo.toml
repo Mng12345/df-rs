@@ -1,6 +1,6 @@
 [package]
 name = "df-rs"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 license = "MIT"
 description = "A tool that can list the 10 biggest directories of the path you support, like df on linux."
@@ -14,3 +14,7 @@ repository = "https://github.com/Mng12345/df-rs"
 
 [dependencies]
 argparse = "0.2.2"           # Powerful command-line argument parsing library
+async-std = "1.12.0"
+async-recursion = "1.0.0"
+futures = "0.3.21"
+num_cpus = "1.0"
